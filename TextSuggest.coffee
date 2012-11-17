@@ -1,4 +1,4 @@
-class ShadowInput
+class TextSuggest
     _element: null
     _shadowEl: null
     _hiddenEl: null
@@ -8,8 +8,7 @@ class ShadowInput
     _options: null
     _defaultOptions: {width: 200, class: 'shadow-element'}
 
-    constructor: (el, options)->
-      options = {} if options is "undefined"
+    constructor: (el, options = {}) ->
       @_element = el
       @_options = Object.merge(@_defaultOptions, options)
       @prepare()
@@ -100,3 +99,6 @@ class ShadowInput
       @_element.set('value', @_shadowValue) 
       @_shadowEl.set('html', '')
       @
+
+namespace "JM", (exports) ->
+  exports.TextSuggest = TextSuggest
